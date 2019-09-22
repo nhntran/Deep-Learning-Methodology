@@ -1,6 +1,6 @@
 Neural Networks and Deep Learning - Methodology Notes
 ================
-Materials from the Deep Learning Specialization by deeplearning.ai on Coursera
+By Tran Nguyen - Materials from the Deep Learning Specialization by deeplearning.ai on Coursera
 
 -   [1. General about neural network](#general-about-neural-network)
 -   [2. Data: Train/Dev/Test sets](#data-traindevtest-sets)
@@ -9,11 +9,11 @@ Materials from the Deep Learning Specialization by deeplearning.ai on Coursera
 -   [5. Basic Recipe for Machine Learning](#basic-recipe-for-machine-learning)
 -   [6. Regularization](#regularization)
 -   [7. Tuning process](#tuning-process)
--   [8. Common packages used in neural networks](#common-packages-used-in-neural-networks)
--   [9. Deep learning frameworks](#deep-learning-frameworks)
+-   [8. Multi-class classification with softmax classifier](#multi-class-classification-with-softmax-classifier)
+-   [9. Common packages used in neural networks](#common-packages-used-in-neural-networks)
+-   [10. Deep learning frameworks](#deep-learning-frameworks)
 
-1. General about neural network
--------------------------------
+### 1. General about neural network
 
 #### 1.1. Neural network layer
 
@@ -28,8 +28,7 @@ Materials from the Deep Learning Specialization by deeplearning.ai on Coursera
 -   1 epoch: 1 pass/iteration through the data.
 -   Applied ML is a highly iterative process, and all the hyperparameters are different and need to be iteratively optimized for each specific problem and dataset.
 
-2. Data: Train/Dev/Test sets
-----------------------------
+### 2. Data: Train/Dev/Test sets
 
 -   The data is normally divided into: Training set + Hold-out cross validation set/ Development set/ "Dev" set + Test set.
 -   Goal of test set: Provide the unbiased estimate of the performance of the net. If the dataset does not have the test set: cannot have the unbiased estimate. People sometimes use only Train/Dev sets and call Dev set as "test" set. It may be okay if don't need the unbiased estimate; otherwise, it leads to overfitting to the "test" set.
@@ -56,8 +55,7 @@ Materials from the Deep Learning Specialization by deeplearning.ai on Coursera
 -   Powers of two are often chosen to be the mini-batch size, e.g., 16, 32, 64, 128.
 -   Optimized size of the mini-batch: for CNN:
 
-3. The basic of neural network
-------------------------------
+### 3. The basic of neural network
 
 -   A neuron computes a linear function (z=Wx+b) followed by an activation function g. =&gt; The output of a neuron is a=g(Wx+b) where g is the activation function (sigmoid, tanh, ReLU, etc.).
 
@@ -292,8 +290,7 @@ for t in range (1, num_MiniBatches+1):
   Update parameters Wl = Wl - α*dWl , γl = γl - α*dγl, and βl = βl - α*dβl
 ```
 
-4. Bias and Variance
---------------------
+### 4. Bias and Variance
 
 -   High bias/"underfitting", "just right" and high variance/"overfitting"
 -   Example of likely "underfitting", "just right" and "overfitting" cases when tweaking the learning rate hyperparameter - visuallization with the training data on the planar dataset:
@@ -312,8 +309,7 @@ for t in range (1, num_MiniBatches+1):
  Train set error: Dev set error: 15%:16% could be the case of low bias and low variance
 ```
 
-5. Basic Recipe for Machine Learning
-------------------------------------
+### 5. Basic Recipe for Machine Learning
 
 -   Steps for evaluating the network after building the model:
 
@@ -333,8 +329,7 @@ for t in range (1, num_MiniBatches+1):
 -   "Orthoganization": doing 1 task at a time for (1) Optimize the cost function but (2) Avoid "overfitting"
 -   If batch gradient descent in a deep network is taking excessively long to find a value of the parameters that achieves a small value for the cost function J. =&gt; Try tuning the learning rate α, try better random initialization for the weights; try using Adam, try mini-batch gradient descent.
 
-6. Regularization
------------------
+### 6. Regularization
 
 -   Including L regularization, Dropout regularization, Data augmentation
 
@@ -412,8 +407,7 @@ dA = dA/keep_prob              # Step 2: Scale the value of neurons that haven't
 -   Data augmentation
 -   Early stopping (plotting training set error and dev set error versus number of iterations, then check when to stop the training). Downside: violate the ""Orthoganization" concept.
 
-7. Tuning process
------------------
+### 7. Tuning process
 
 #### 7.1. Priority of hyperparameters in the tuning process
 
@@ -471,7 +465,7 @@ r =np.random.rand()
 Tuning α by hand, days by days
 ```
 
-### 10. Multi-class classification with softmax classifier
+### 8. Multi-class classification with softmax classifier
 
 -   Implementation:
 
@@ -482,16 +476,14 @@ t = e^Z_l
 a_L = t / sum(t)
 ```
 
-8. Common packages used in neural networks
-------------------------------------------
+### 9. Common packages used in neural networks
 
 -   numpy: scientific computing with Python.
 -   h5py: to interact with a dataset that is stored on an H5 file.
 -   matplotlib: plot graphs in Python.
 -   PIL and scipy: picture manipulation.
 
-9. Deep learning frameworks
----------------------------
+### 10. Deep learning frameworks
 
 -   Common frameworks: Caffe/Caffe2, CNTK, DL4J, Keras, Lasagne, mxnet, PaddlePaddle, TensorFlow, Theano, Torch.
 -   These frameworks have evolved rapidly =&gt; Need to choose one that ease of programming (development and deployment), running speed, truly open (open source with good governance).
