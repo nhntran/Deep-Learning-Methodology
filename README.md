@@ -159,7 +159,35 @@ cost = -(1/m) * np.sum(np.multiply(Y,np.log(AL)) + np.multiply((1 - Y),np.log(1 
 -   Disadvantage: (i) It may take a long time to optimize the cost function (ii) In very high-dimensional spaces, the gradient descent is more likely to run into the saddle point rather than local optima. =&gt; Plateaus on saddle point (the region where the derivative is close to zero for a long time) can really slow down learning
     =&gt; Other optimization algorithms (momentum, RMSprop, Adam, etc.) help to speed up the training time.
 
-##### 3.5.1. Gradient descent approaches
+##### 3.5.1. Gradient descent approaches on train data
+
+-   Batch, mini-batch or stochastic gradient descent
+-   With mini-batch gradient descent, you loop over the mini-batches instead of looping over individual training examples.
+-   In Stochastic Gradient Descent, you use only 1 training example before updating the gradients. When the training set is large, SGD can be faster. But the parameters will "oscillate" toward the minimum rather than converge smoothly.
+
+``` r
+# Batch gradient descent:
+for i in range(0, num_iterations):
+  forward_prop, backward_prop, update_parameters
+
+# Stochastic gradient descent:
+for i in range(0, num_iterations):
+  for j in range(0, m):
+    forward_prop, backward_prop, update_parameters
+
+# Mini-batch gradient descent:
+for i in range(0, num_iterations):
+  for j in range(0, num_mini_batches):
+    forward_prop, backward_prop, update_parameters
+```
+
+-   With a well-turned mini-batch size, usually it outperforms either gradient descent or stochastic gradient descent (particularly when the training set is large).
+-   You have to tune a learning rate hyperparameter α when using mini-batch(?)
+-   Because mini-batch gradient descent makes a parameter update after seeing just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will "oscillate" toward convergence.
+-   With very deep net, the vanishing/exploding gradients problem can happen =&gt; Carefully initialize the weight W can partially help.
+-   One iteration of mini-batch gradient descent (computing on a single mini-batch) is faster than one iteration of batch gradient descent.
+
+##### 3.5.2. Gradient descent approaches
 
 -   These algorithms are designed to reduce the oscillations (caused by mini-batch or stochastic gradient descent).
 -   RMSprop and Adam are the two rare optimization algorithms that have been shown to work well across a wide range of deep learning architectures.
@@ -229,35 +257,7 @@ W = W - α*(velocityW_corrected/(sqrt(sW_corrected) + ε))
 
 -   Some advantages of Adam include: - Relatively low memory requirements (though higher than gradient descent and gradient descent with momentum) - Usually works well even with little tuning of hyperparameters (except α).
 
-##### 3.5.2. Gradient descent approaches on train data
-
--   Batch, mini-batch or stochastic gradient descent
--   With mini-batch gradient descent, you loop over the mini-batches instead of looping over individual training examples.
--   In Stochastic Gradient Descent, you use only 1 training example before updating the gradients. When the training set is large, SGD can be faster. But the parameters will "oscillate" toward the minimum rather than converge smoothly.
-
-``` r
-# Batch gradient descent:
-for i in range(0, num_iterations):
-  forward_prop, backward_prop, update_parameters
-
-# Stochastic gradient descent:
-for i in range(0, num_iterations):
-  for j in range(0, m):
-    forward_prop, backward_prop, update_parameters
-
-# Mini-batch gradient descent:
-for i in range(0, num_iterations):
-  for j in range(0, num_mini_batches):
-    forward_prop, backward_prop, update_parameters
-```
-
--   With a well-turned mini-batch size, usually it outperforms either gradient descent or stochastic gradient descent (particularly when the training set is large).
--   You have to tune a learning rate hyperparameter α when using mini-batch(?)
--   Because mini-batch gradient descent makes a parameter update after seeing just a subset of examples, the direction of the update has some variance, and so the path taken by mini-batch gradient descent will "oscillate" toward convergence.
--   With very deep net, the vanishing/exploding gradients problem can happen =&gt; Carefully initialize the weight W can partially help.
--   One iteration of mini-batch gradient descent (computing on a single mini-batch) is faster than one iteration of batch gradient descent.
-
-##### 3.5.2. Gradient checking:
+##### 3.5.3. Gradient checking:
 
 -   Use to debug (don't use in training)
 
