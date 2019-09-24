@@ -2,18 +2,19 @@ Neural Networks and Deep Learning - Methodology Notes
 ================
 By Tran Nguyen - Materials from the Deep Learning Specialization by deeplearning.ai on Coursera
 
--   [1. General about neural network](#general-about-neural-network)
--   [2. Data: Train/Dev/Test sets](#data-traindevtest-sets)
--   [3. The basic of neural network](#the-basic-of-neural-network)
--   [4. Bias and Variance](#bias-and-variance)
--   [5. Basic Recipe for Machine Learning](#basic-recipe-for-machine-learning)
--   [6. Regularization](#regularization)
--   [7. Tuning process](#tuning-process)
--   [8. Multi-class classification with softmax classifier](#multi-class-classification-with-softmax-classifier)
--   [9. Common packages used in neural networks](#common-packages-used-in-neural-networks)
--   [10. Deep learning frameworks](#deep-learning-frameworks)
+-   [1. GENERAL ABOUT NEURAL NETWORKS](#general-about-neural-networks)
+-   [2. DATA: TRAIN/DEV/TEST SETS](#data-traindevtest-sets)
+-   [3. THE BASIC OF NEURAL NETWORKS](#the-basic-of-neural-networks)
+-   [4. BIAS AND VARIANCE](#bias-and-variance)
+-   [5. BASIC RECIPE FOR MACHINE LEARNING](#basic-recipe-for-machine-learning)
+-   [6. REGULARIZATION](#regularization)
+-   [7. TUNING PROCESS](#tuning-process)
+-   [8. MULTI-CLASS CLASSIFICATION WITH SOFTMAX CLASSIFIER](#multi-class-classification-with-softmax-classifier)
+-   [9. COMMON PACKAGES USED IN NEURAL NETWORKS](#common-packages-used-in-neural-networks)
+-   [10. DEEP LEARNING FRAMEWORKS](#deep-learning-frameworks)
+-   [REFERENCES](#references)
 
-### 1. GENERAL ABOUT NEURAL NETWORK
+### 1. GENERAL ABOUT NEURAL NETWORKS
 
 #### 1.1. Neural network layer
 
@@ -55,7 +56,7 @@ By Tran Nguyen - Materials from the Deep Learning Specialization by deeplearning
 -   Powers of two are often chosen to be the mini-batch size, e.g., 16, 32, 64, 128.
 -   Optimized size of the mini-batch: for CNN:
 
-### 3. THE BASIC OF A NEURAL NETWORK
+### 3. THE BASIC OF NEURAL NETWORKS
 
 -   A neuron computes a linear function (z=Wx+b) followed by an activation function g. =&gt; The output of a neuron is a=g(Wx+b) where g is the activation function (sigmoid, tanh, ReLU, etc.).
 
@@ -126,7 +127,7 @@ Z = np.dot(W.T,X) + b
 
 ###### ReLU function
 
--   The ReLU activation function is the most used in neural networks.
+-   The ReLU activation function is the most used in neural networks, helps to decrease training time significantly.
 
 ##### 3.3.3. Loss and cost function
 
@@ -309,7 +310,7 @@ for t in range (1, num_MiniBatches+1):
  Train set error: Dev set error: 15%:16% could be the case of low bias and low variance
 ```
 
-### 5. BASIC RECIPE FOR MACHINE LEARNING/DEEP LEARNING
+### 5. BASIC RECIPE FOR MACHINE LEARNING
 
 -   Steps for evaluating the network after building the model:
 
@@ -483,9 +484,12 @@ a_L = t / sum(t)
 -   matplotlib: plot graphs in Python.
 -   PIL and scipy: picture manipulation.
 
-### 10. SOME DEEP LEARNING FRAMEWORKS
+### 10. DEEP LEARNING FRAMEWORKS
 
 -   Common frameworks: Caffe/Caffe2, CNTK, DL4J, Keras, Lasagne, mxnet, PaddlePaddle, TensorFlow, Theano, Torch.
 -   These frameworks have evolved rapidly =&gt; Need to choose one that ease of programming (development and deployment), running speed, truly open (open source with good governance).
 
-Ref: Using math in R markdown: <https://www.calvin.edu/~rpruim/courses/s341/S17/from-class/MathinRmd.html>
+### REFERENCES
+
+1.  DL history and some technical aspects: <https://www.cse.iitb.ac.in/~pjyothi/cs753_spr16/cnn.pdf>
+2.  Using math in R markdown: <https://www.calvin.edu/~rpruim/courses/s341/S17/from-class/MathinRmd.html>
