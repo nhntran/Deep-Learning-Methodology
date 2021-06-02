@@ -47,7 +47,11 @@ By Tran Nguyen - Materials from the Deep Learning Specialization by deeplearning
 
 #### 2.3. Normalizing the inputs
 
--   Normalizing by mean and variance. Normalizing makes the cost function faster to optimize =&gt; faster learning.
+-  Normalizing makes the cost function faster to optimize =&gt; faster learning.
+-  Common normalization techniques: 
+     + Min-max normalization (x - min)/(max - min): doesnot handle outliers
+     + Z-score normalization (x - mean_x)/variance: handle outliers.
+-  
 
 #### 2.4. Mini-batch approach
 
