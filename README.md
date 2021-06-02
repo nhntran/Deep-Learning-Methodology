@@ -138,7 +138,8 @@ Z = np.dot(W.T,X) + b
 
 -   The loss for each example in the training set
 -   For continuous value output: Common loss function: square error Loss = (y-yhat)^2
--   In logistic regression/categorical classification: common loss function is cross-enrropy. Loss function = -(ylog(yhat) + (1-y)log(1-yhat)), \#\#\#\#\#\# Cost function
+-   In logistic regression/categorical classification: common loss function is cross-enrropy. Loss function = -(ylog(yhat) + (1-y)log(1-yhat))
+###### Cost function
 -   The cost for all the example in the training set/batch Cost function = -1/m \* sum of the loss function in all training examples m.
 
 Implementation for the cost function for logistic regression/categorical classification:
