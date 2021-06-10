@@ -87,8 +87,11 @@ parameters['W'+str(l)] = np.random.randn(layer_dims[l],layer_dims[l-1])*init_con
 
 # Using diffent init_const can slow down or faster gradient descent
 # Method 1: init_const = 0.01 
-# Method 2 ("He Initialization"): for relu activation function: init_const = np.sqrt(2/layer_dims[l-1]) => the most common method.
-# Method 3 (Xavier initialization): for tanh activation function: init_const = np.sqrt(1/layer_dims[l-1])
+# Method 2 ("He Initialization"): 
+for relu activation function: init_const = np.sqrt(2/layer_dims[l-1]) 
+=> the most common method.
+# Method 3 (Xavier initialization): 
+for tanh activation function: init_const = np.sqrt(1/layer_dims[l-1])
 # Method 4: init_const = np.sqrt(2/(layer_dims[l-1] + layer_dims[l]))
 
 ### For b:
