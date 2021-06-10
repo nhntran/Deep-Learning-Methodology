@@ -408,12 +408,20 @@ D = D < keep_prob # => True => 1 => Keep
 A = np.multiply(A, D) #element-wise
 # Scale the value of neurons that haven't been shut down
 A = A/keep_prob
-# By doing this you are assuring that the result of the cost will still have the same expected value as without drop-out. (This technique is also called inverted dropout) (In other words, it ensures that the value of A does not reduce due to the zeroing out of random nodes)
-# for example: The values of np.sum(A1) before, during dropout and after inverted dropout are: 14.487743021, 11.1624966752, and 15.9464238217, respectively.
+# By doing this you are assuring that the result of the cost will still have the 
+# same expected value as without drop-out. (This technique is also called inverted dropout) 
+# (In other words, it ensures that the value of A does not reduce due to the zeroing out 
+#of random nodes)
+# for example: The values of np.sum(A1) before, during dropout and 
+# after inverted dropout are: 14.487743021, 11.1624966752, and 15.9464238217, respectively.
 
 ### Backward propagation with dropout
-dA = np.multiply(dA, D)              # Step 1: Apply mask D to shut down the same neurons as during the forward propagation
-dA = dA/keep_prob              # Step 2: Scale the value of neurons that haven't been shut down. (The calculus interpretation is that if  Ais scaled by keep_prob, then its derivative  dA is also scaled by the same keep_prob.)
+# Step 1: Apply mask D to shut down the same neurons as during the forward propagation
+dA = np.multiply(dA, D)
+# Step 2: Scale the value of neurons that haven't been shut down. 
+# (The calculus interpretation is that if  Ais scaled by keep_prob, 
+# then its derivative  dA is also scaled by the same keep_prob.)
+dA = dA/keep_prob              
 ```
 
 #### 6.3. Other regularization methods
