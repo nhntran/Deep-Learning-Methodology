@@ -227,11 +227,13 @@ b = b - α*velocity_db
 -   The larger the momentum β is, the smoother the update because the more we take the past gradients into account. But if β is too big, it could also smooth out the updates too much.
 -   Common values for β range from 0.8 to 0.999. If you don't feel inclined to tune this, β=0.9 is often a reasonable default.
 -   Tuning the optimal β for your model might need trying several values to see what works best in term of reducing the value of the cost function J.
--   More instuition about momentum: Example: You use an exponentially weighted average on the London temperature dataset. You use the following to track the temperature: v{t} = βv{t-1}+(1−β)θ{t} The red line below was computed using β=0.9. What would happen to your red curve as you vary β? <img src="./img/time_series.png" width="742" style="display: block; margin: auto;" /> =&gt; Increasing β will shift the red line slightly to the right. Decreasing β will create more oscillation within the red line.
+-   More instuition about momentum: Example: You use an exponentially weighted average on the London temperature dataset. You use the following to track the temperature: v{t} = βv{t-1}+(1−β)θ{t} The red line below was computed using β=0.9. What would happen to your red curve as you vary β? 
+
+<img src="./img/time_series.png" width="500" style="display: block; margin: auto;" /> =&gt; Increasing β will shift the red line slightly to the right. Decreasing β will create more oscillation within the red line.
 
 -   Momentum effect: The plots in the image below were generated with gradient descent; with gradient descent with momentum (β = 0.5) and gradient descent with momentum (β = 0.9). (1) is gradient descent. (2) is gradient descent with momentum (small β). (3) is gradient descent with momentum (large β)
 
-<img src="./img/momentum_effect.png" width="740" style="display: block; margin: auto;" />
+<img src="./img/momentum_effect.png" width="500" style="display: block; margin: auto;" />
 
 ###### Gradient descent with RMSprop (Root Mean Square prop)
 
@@ -307,7 +309,7 @@ for t in range (1, num_MiniBatches+1):
 -   High bias/"underfitting", "just right" and high variance/"overfitting"
 -   Example of likely "underfitting", "just right" and "overfitting" cases when tweaking the learning rate hyperparameter - visuallization with the training data on the planar dataset:
 
-<img src="./img/bias_variance_example.png" width="900" style="display: block; margin: auto;" /> \#\#\#\# Using train set/dev set error to evaluate bias and variance:
+<img src="./img/bias_variance_example.png" width="500" style="display: block; margin: auto;" /> \#\#\#\# Using train set/dev set error to evaluate bias and variance:
 
 ``` r
 *** The estimation depends on the comparison with the optimal error:
