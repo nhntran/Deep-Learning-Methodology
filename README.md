@@ -102,7 +102,7 @@ parameters['b'+str(l)] = np.zeros((layer_dims[l],1))
 
 -   The basic steps in the neural network include (i) Forward propagation, (ii) Backward propagation, (iii) Optimization
 
-<img src="./img/forward_backward_Llayer.png" width="1334" style="display: block; margin: auto;" />
+<img src="./img/forward_backward_Llayer.png" width="900" style="display: block; margin: auto;" />
 
 #### 3.3. Forward propagation
 
@@ -119,7 +119,7 @@ Z = np.dot(W.T,X) + b
 -   Non-linear activation function is a critical part of neural networks =&gt; compute "interesting" function.
 -   A = g(Z) in which g(Z) could be sigmoid function, tanh or relu function, etc.
 -   Choice of activation? Try them all and choose the best.
--   Some common activation function. Note: each will have different formula for calculate the derivatives. <img src="./img/activation_function.png" width="1423" style="display: block; margin: auto;" />
+-   Some common activation function. Note: each will have different formula for calculate the derivatives. <img src="./img/activation_function.png" width="900" style="display: block; margin: auto;" />
 
 ###### Sigmoid function
 
@@ -303,7 +303,7 @@ for t in range (1, num_MiniBatches+1):
 -   High bias/"underfitting", "just right" and high variance/"overfitting"
 -   Example of likely "underfitting", "just right" and "overfitting" cases when tweaking the learning rate hyperparameter - visuallization with the training data on the planar dataset:
 
-<img src="./img/bias_variance_example.png" width="1021" style="display: block; margin: auto;" /> \#\#\#\# Using train set/dev set error to evaluate bias and variance:
+<img src="./img/bias_variance_example.png" width="900" style="display: block; margin: auto;" /> \#\#\#\# Using train set/dev set error to evaluate bias and variance:
 
 ``` r
 *** The estimation depends on the comparison with the optimal error:
