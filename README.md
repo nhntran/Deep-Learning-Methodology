@@ -177,7 +177,9 @@ cost = -(1/m) * np.sum(np.multiply(Y,np.log(AL)) + np.multiply((1 - Y),np.log(1 
 #### 3.5. Optimization
 
 -   Purpose: Update the parameters using gradient descent.
--   Basic gradient descent: W\[l\] = W\[l\] - learning\_rate \* dW\[l\] b\[l\] = b\[l\] - learning\_rate \* db\[l\]
+-   Basic gradient descent: 
+     + W\[l\] = W\[l\] - learning\_rate \* dW\[l\] 
+     + b\[l\] = b\[l\] - learning\_rate \* db\[l\]
 -   Disadvantage: (i) It may take a long time to optimize the cost function (ii) In very high-dimensional spaces, the gradient descent is more likely to run into the saddle point rather than local optima. =&gt; Plateaus on saddle point (the region where the derivative is close to zero for a long time) can really slow down learning
     =&gt; Other optimization algorithms (momentum, RMSprop, Adam, etc.) help to speed up the training time.
 
@@ -239,7 +241,9 @@ b = b - α*velocity_db
 -   Tuning the optimal β for your model might need trying several values to see what works best in term of reducing the value of the cost function J.
 -   More instuition about momentum: Example: You use an exponentially weighted average on the London temperature dataset. You use the following to track the temperature: v{t} = βv{t-1}+(1−β)θ{t} The red line below was computed using β=0.9. What would happen to your red curve as you vary β? 
 
-<img src="./img/time_series.png" width="500" style="display: block; margin: auto;" /> =&gt; Increasing β will shift the red line slightly to the right. Decreasing β will create more oscillation within the red line.
+<img src="./img/time_series.png" width="500" style="display: block; margin: auto;" /> 
+
+=> Increasing β will shift the red line slightly to the right. Decreasing β will create more oscillation within the red line.
 
 -   Momentum effect: The plots in the image below were generated with gradient descent; with gradient descent with momentum (β = 0.5) and gradient descent with momentum (β = 0.9). (1) is gradient descent. (2) is gradient descent with momentum (small β). (3) is gradient descent with momentum (large β)
 
@@ -321,7 +325,9 @@ for t in range (1, num_MiniBatches+1):
 -   High bias/"underfitting", "just right" and high variance/"overfitting"
 -   Example of likely "underfitting", "just right" and "overfitting" cases when tweaking the learning rate hyperparameter - visuallization with the training data on the planar dataset:
 
-<img src="./img/bias_variance_example.png" width="500" style="display: block; margin: auto;" /> \#\#\#\# Using train set/dev set error to evaluate bias and variance:
+<img src="./img/bias_variance_example.png" width="500" style="display: block; margin: auto;" /> 
+
+#### Using train set/dev set error to evaluate bias and variance:
 
 ``` r
 *** The estimation depends on the comparison with the optimal error:
