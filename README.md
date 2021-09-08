@@ -14,6 +14,7 @@ By Tran Nguyen - Materials from the Deep Learning Specialization by deeplearning
 -   [10. DEEP LEARNING FRAMEWORKS](#deep-learning-frameworks)
 -   [REFERENCES](#references)
 
+<a name="general-about-neural-networks">
 ### 1. GENERAL ABOUT NEURAL NETWORKS
 
 #### 1.1. Neural network layer
@@ -28,6 +29,9 @@ By Tran Nguyen - Materials from the Deep Learning Specialization by deeplearning
 -   Including learning rate, number of iterations, number of hidden layers, hidden layer size (number of hidden units), choice of activation function, momentum, mini-batch size, regulation, learning\_decay\_rate, ...
 -   1 epoch: 1 pass/iteration through the data.
 -   Applied ML is a highly iterative process, and all the hyperparameters are different and need to be iteratively optimized for each specific problem and dataset.
+</a>
+
+<a name="data-traindevtest-sets">
 
 ### 2. DATA: TRAIN/DEV/TEST SETS
 
@@ -57,10 +61,13 @@ By Tran Nguyen - Materials from the Deep Learning Specialization by deeplearning
 -   Batch size is one of the most important hyperparameters:
      + Batch size = entire dataset => global optima, but slower, empirical convergence.
      + Smaller batch size: faster convergence (start learning before seeing all the data) => not guaranteed to converge to the global optima.
+-   In practice, however, too large batch size will lead to poor generalization. Why? Seeing many small batch size dataset with their own noises will reduce overfitting.
 -   The training data can be divide into mini-batch via 2 steps: (1) Shuffling: the random shuffling is done synchronously between X and Y =&gt; examples will be split randomly into different mini-batches. (2) Partitioning the shuffled (X, Y) into mini-batches of size mini\_batch\_size. The last mini batch might be smaller than the full mini\_batch\_size.
 -   Notation for the mini-batch: a\[3\]{8}(7): the 3rd layer activations when the input is the 7th example from the 8th mini-batch.
 -   Powers of two are often chosen to be the mini-batch size, e.g., 16, 32, 64, 128.
 -   Optimized size of the mini-batch: Can start with the small batch size (16, 32) then steadily grows the batch size through training.
+</a>
+<a name = "the-basic-of-neural-networks">
 
 ### 3. THE BASIC OF NEURAL NETWORKS
 
@@ -306,6 +313,8 @@ for t in range (1, num_MiniBatches+1):
   Backward propagation: compute dW, dγ, dβ for each hidden layer.
   Update parameters Wl = Wl - α*dWl , γl = γl - α*dγl, and βl = βl - α*dβl
 ```
+</a>
+<a name = "bias-and-variance">
 
 ### 4. BIAS AND VARIANCE
 
@@ -325,7 +334,9 @@ for t in range (1, num_MiniBatches+1):
 - If, for example, the human level performance (Optimal error or Bayes error) ~ 15% error:
  Train set error: Dev set error: 15%:16% could be the case of low bias and low variance
 ```
-
+</a>
+<a name = "basic-recipe-for-machine-learning">
+ 
 ### 5. BASIC RECIPE FOR MACHINE LEARNING
 
 -   Steps for evaluating the network after building the model:
@@ -345,7 +356,9 @@ for t in range (1, num_MiniBatches+1):
 -   "Bias variance tradeoff": In the era of big data, bigger network and more data help to escape the tradeoff. (Trying bigger network will not hurt the variance, and trying more data will not hurt the bias)
 -   "Orthoganization": doing 1 task at a time for (1) Optimize the cost function but (2) Avoid "overfitting"
 -   If batch gradient descent in a deep network is taking excessively long to find a value of the parameters that achieves a small value for the cost function J. =&gt; Try tuning the learning rate α, try better random initialization for the weights; try using Adam, try mini-batch gradient descent.
-
+</a>
+<a name = "regularization">
+     
 ### 6. REGULARIZATION
 
 -   Including L regularization, Dropout regularization, Data augmentation
@@ -432,6 +445,9 @@ dA = dA/keep_prob
 -   Data augmentation
 -   Early stopping (plotting training set error and dev set error versus number of iterations, then check when to stop the training). Downside: violate the ""Orthoganization" concept.
 
+</a>    
+<a name = "tuning-process">
+     
 ### 7. TUNING PROCESS
 
 #### 7.1. Priority of hyperparameters in the tuning process
@@ -489,7 +505,9 @@ r =np.random.rand()
 #Method 5: Manual decay for learning rate
 Tuning α by hand, days by days
 ```
-
+ </a>
+<a name = "multi-class-classification-with-softmax-classifier">
+         
 ### 8. MULTI-CLASS CLASSIFICATION WITH SOFTMAX CLASSIFIER
 
 -   Implementation:
@@ -501,6 +519,9 @@ t = e^Z_l
 a_L = t / sum(t)
 ```
 
+</a>
+<a name = "common-packages-used-in-neural-networks">
+     
 ### 9. COMMON PACKAGES USED IN NEURAL NETWORKS
 
 -   numpy: scientific computing with Python.
@@ -508,12 +529,21 @@ a_L = t / sum(t)
 -   matplotlib: plot graphs in Python.
 -   PIL and scipy: picture manipulation.
 
+ </a>
+  
+  
+<a name = "deep-learning-frameworks">
+     
 ### 10. DEEP LEARNING FRAMEWORKS
 
 -   Common frameworks: Caffe/Caffe2, CNTK, DL4J, Keras, Lasagne, mxnet, PaddlePaddle, TensorFlow, Theano, Torch.
 -   These frameworks have evolved rapidly =&gt; Need to choose one that ease of programming (development and deployment), running speed, truly open (open source with good governance).
-
+     </a>
+ <a name = "references"> 
+      
 ### REFERENCES
 
 1.  DL history and some technical aspects: <https://www.cse.iitb.ac.in/~pjyothi/cs753_spr16/cnn.pdf>
 2.  Using math in R markdown: <https://www.calvin.edu/~rpruim/courses/s341/S17/from-class/MathinRmd.html>
+
+      </a>
