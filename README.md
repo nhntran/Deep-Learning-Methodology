@@ -109,7 +109,7 @@ parameters['b'+str(l)] = np.zeros((layer_dims[l],1))
 ```
 ### Vanishing/exploding gradient problem:
 - Can happen when training very deep neural network.
-- The slope (derivatives) could be exponentially big or small. For simplicity, consider only the weights: W1*W2*W3....*WL. If Wi > 1.5 or Wi < 0.5: the slope wouls be (1.5)^L or (0.5)^L => very big or very small number => difficult for training.
+- The slope (derivatives) could be exponentially big or small. For simplicity, consider only the weights: W1*W2*W3....*WL. If Wi > 1.5 or Wi < 0.5: the slope wouls be (1.5)^L or (0.5)^L => very big or very small number => difficult for training. Especially when the derivative is very small, it takes a very long time for gradient descent step.
      
 => Carefully initialize the weight W can partially help the vanishing/exploding gradient problem
 
