@@ -54,10 +54,13 @@ By Tran Nguyen - Materials from the Deep Learning Specialization by deeplearning
 
 #### 2.4. Mini-batch approach
 
+-   Batch size is one of the most important hyperparameters:
+     + Batch size = entire dataset => global optima, but slower, empirical convergence.
+     + Smaller batch size: faster convergence (start learning before seeing all the data) => not guaranteed to converge to the global optima.
 -   The training data can be divide into mini-batch via 2 steps: (1) Shuffling: the random shuffling is done synchronously between X and Y =&gt; examples will be split randomly into different mini-batches. (2) Partitioning the shuffled (X, Y) into mini-batches of size mini\_batch\_size. The last mini batch might be smaller than the full mini\_batch\_size.
 -   Notation for the mini-batch: a\[3\]{8}(7): the 3rd layer activations when the input is the 7th example from the 8th mini-batch.
 -   Powers of two are often chosen to be the mini-batch size, e.g., 16, 32, 64, 128.
--   Optimized size of the mini-batch: for CNN:
+-   Optimized size of the mini-batch: Can start with the small batch size (16, 32) then steadily grows the batch size through training.
 
 ### 3. THE BASIC OF NEURAL NETWORKS
 
