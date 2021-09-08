@@ -107,7 +107,14 @@ for tanh activation function: init_const = np.sqrt(1/layer_dims[l-1])
 ### For b:
 parameters['b'+str(l)] = np.zeros((layer_dims[l],1))
 ```
+### Vanishing/exploding gradient problem:
+- Can happen when training very deep neural network.
+- The slope (derivatives) could be exponentially big or small. For simplicity, consider only the weights: W1*W2*W3....*WL. If Wi > 1.5 or Wi < 0.5: the slope wouls be (1.5)^L or (0.5)^L => very big or very small number => difficult for training.
+     
+=> Carefully initialize the weight W can partially help the vanishing/exploding gradient problem
 
+<img src="./img/vanishing_exploding_gradients.png" width="500" style="display: block; margin: auto;" />
+     
 #### 3.2. The basic steps in the neural network
 
 -   The basic steps in the neural network include (i) Forward propagation, (ii) Backward propagation, (iii) Optimization
